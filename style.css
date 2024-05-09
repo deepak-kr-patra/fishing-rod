@@ -1,0 +1,445 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background-color: black;
+    animation: bg-color 16s ease;
+}
+
+.container {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 75vmin;
+    height: 75vmin;
+}
+
+.fishing-rod {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 45.8%;
+    transform: rotate(17deg);
+    transform-origin: 0%;
+    opacity: 0;
+    animation: fade-in-and-out 14s ease;
+}
+
+@keyframes fade-in-and-out {
+    0% {
+        opacity: 0;
+        filter: blur(2vmin);
+    }
+
+    14.28% {
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    85.71% {
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    92.85% {
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    96.42% {
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    100% {
+        opacity: 0;
+        filter: blur(2vmin);
+    }
+}
+
+.rod {
+    position: relative;
+    width: 35vmin;
+    height: 3vmin;
+    border-top: 1.5vmin solid #E34954;
+    border-left: 0.3vmin solid #E34954;
+    border-top-left-radius: 100%;
+}
+
+.rod .point {
+    position: absolute;
+    background-color: black;
+    width: 0.7vmin;
+    border-radius: 10% 10% 150px 150px;
+}
+
+.point-1 {
+    height: 2.7vmin;
+    left: 70%;
+    bottom: 16.3%;
+}
+
+.point-2 {
+    height: 2.4vmin;
+    left: 38%;
+    bottom: 5%;
+    transform: rotate(-2deg);
+}
+
+.point-3 {
+    height: 2vmin;
+    left: 10%;
+    top: 4.5%;
+    transform: rotate(-6deg);
+}
+
+.wheel {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    background-image: radial-gradient(#6997C6, #0d2b49);
+    width: 5vmin;
+    height: 5vmin;
+    border-radius: 50%;
+    right: 5%;
+    bottom: 0%;
+    z-index: 10;
+    animation: spin 1s linear 4 2s, spin-reverse 1s linear 4 8s;
+}
+
+.wheel-handle {
+    position: absolute;
+    top: 35%;
+    width: 1.5vmin;
+    height: 5vmin;
+    border-radius: 150px 150px 0 0;
+    background-image: linear-gradient(155deg, rgb(173, 226, 80), darkolivegreen);
+    z-index: 10;
+}
+
+.wheel-handle-circle {
+    position: absolute;
+    width: 2vmin;
+    height: 2vmin;
+    bottom: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background-color: #E34954;
+    z-index: 10;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-reverse {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.thread {
+    position: absolute;
+    height: 0.25vmin;
+    background-color: black;
+}
+
+.thread-1 {
+    width: 5vmin;
+    right: 15%;
+    bottom: 33%;
+    transform: rotate(4deg);
+}
+
+.thread-2 {
+    width: 11vmin;
+    right: 30%;
+    bottom: 40%;
+    transform: rotate(-1.2deg);
+}
+
+.thread-3 {
+    width: 10vmin;
+    right: 60%;
+    bottom: 18%;
+    transform: rotate(-3.3deg);
+}
+
+/* fishing rod handle */
+.handle {
+    position: relative;
+    width: 10vmin;
+    height: 1.8vmin;
+    background-image: linear-gradient(150deg, #703B18, #8e5732);
+    right: 0.2%;
+    bottom: 0.15vmin;
+    z-index: 1;
+}
+
+
+/* vertical thread */
+.vertical-thread {
+    position: absolute;
+    top: 5.7%;
+    left: 50%;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    animation: fade-in-and-out 14s ease;
+}
+
+.vertical-thread-thread {
+    /* declaring variable for hanging thread initial height */
+    --initial-height: 5vmin;
+    position: relative;
+    height: var(--initial-height);
+    width: 0.25vmin;
+    background-color: black;
+    z-index: 40;
+    animation: growdown 10s linear 2s;
+}
+
+@keyframes growdown {
+    0% {
+        height: var(--initial-height);
+    }
+
+    40% {
+        height: calc(var(--initial-height) + 79vh + 4vmin);
+    }
+
+    60% {
+        height: calc(var(--initial-height) + 79vh + 4vmin);
+    }
+
+    100% {
+        height: var(--initial-height);
+    }
+}
+
+.hook {
+    position: relative;
+}
+
+.hook-hook {
+    position: absolute;
+    height: 3.5vmin;
+    width: 3.5vmin;
+    left: -2.15vmin;
+    top: -0.53vmin;
+}
+
+.hook-hook::before,
+.hook-hook::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border-width: 0.5vmin 0.5vmin 0.5vmin 0;
+    border-color: transparent black black transparent;
+    border-style: solid;
+    z-index: 40;
+    transform: rotate(-30deg);
+}
+
+.hook-hook::before {
+    clip-path: polygon(0 0, 85% 0, 15% 100%, 0 100%);
+    z-index: 10;
+    animation: hide-hook-tip 10s 2s, keep-hidden 2s 12s;
+}
+
+.hook-hook::after {
+    clip-path: polygon(85% 0, 100% 0, 100% 100%, 15% 100%);
+}
+
+@keyframes hide-hook-tip {
+    0% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes keep-hidden {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* for picture */
+.picture {
+    position: absolute;
+    width: 100vmin;
+    height: 100vmin;
+    animation: shake 1s linear 14s, zoomin 16s ease;
+}
+
+.picture::before,
+.picture::after {
+    position: absolute;
+    content: '';
+    background-image: url(https://iili.io/J4ziZ0X.jpg);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    z-index: 0;
+}
+
+.picture::before {
+    clip-path: polygon(0 0, 100% 0, 100% 46%, 67% 66%, 43% 51%, 0 61%);
+    z-index: 30;
+    animation: initially-below 2s, slide-up 10s linear 2s, falldown 2s linear 12s;
+}
+
+.picture::after {
+    clip-path: polygon(0 60%, 43% 50%, 67% 65%, 100% 45%, 100% 100%, 0 100%);
+}
+
+@keyframes initially-below {
+    0% {
+        transform: translateY(79vh);
+    }
+
+    100% {
+        transform: translateY(79vh);
+    }
+}
+
+@keyframes slide-up {
+    0% {
+        transform: translateY(79vh);
+    }
+
+    60% {
+        transform: translateY(79vh);
+    }
+
+    100% {
+        transform: translateY(-4vmin);
+    }
+}
+
+@keyframes falldown {
+    0% {
+        transform: translateY(-4vmin);
+    }
+
+    75% {
+        transform: translateY(-4vmin);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+
+    0% {
+        filter: blur(0);
+    }
+
+    1% {
+        transform: translateY(1%);
+    }
+
+    5.5% {
+        filter: blur(0.1vmin);
+        transform: translateY(4%);
+    }
+
+    20% {
+        transform: translateY(2%);
+        filter: blur(0);
+    }
+
+    31% {
+        transform: translateY(-2%) scale(0.98);
+    }
+
+    47% {
+        transform: translateY(1.3%);
+    }
+
+    64% {
+        transform: translateY(-1.2%);
+    }
+
+    78% {
+        transform: translateX(-0.6%);
+    }
+    
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomin {
+    0% {
+        width: 45vmin;
+        height: 45vmin;
+    }
+
+    93.75% {
+        width: 45vmin;
+        height: 45vmin;
+    }
+
+    100% {
+        width: 100vmin;
+        height: 100vmin;
+    }
+}
+
+@keyframes bg-color {
+    0% {
+        background-color: white;
+    }
+
+    93.75% {
+        background-color: white;
+    }
+
+    100% {
+        background-color: black;
+    }
+}

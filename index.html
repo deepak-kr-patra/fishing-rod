@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+
+        const updateSize = () => {
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+            console.log(width + " - " + height);
+        }
+
+        window.addEventListener('resize', updateSize);
+
+        updateSize();
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="fishing-rod">
+            <div class="rod">
+                <div class="wheel">
+                    <div class="wheel-handle">
+                        <div class="wheel-handle-circle"></div>
+                    </div>
+                </div>
+
+                <div class="thread thread-1"></div>
+                <div class="point point-1"></div>
+
+                <div class="thread thread-2"></div>
+                <div class="point point-2"></div>
+
+                <div class="thread thread-3"></div>
+                <div class="point point-3"></div>
+            </div>
+
+            <div class="handle"></div>
+        </div>
+        
+        <div class="vertical-thread">
+            <div class="vertical-thread-thread"></div>
+            <div class="hook">
+                <div class="hook-hook"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="picture"></div>
+</body>
+
+</html>
